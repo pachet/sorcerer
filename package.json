@@ -1,0 +1,30 @@
+{
+  "name": "sorcerer",
+  "version": "0.0.1",
+  "description": "REST API scaffolding for HATEOAS: auto-discovery, content negotation, versioning, and more",
+  "main": "index.js",
+  "dependencies": {
+	"promix": "0.1.x"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pachet/sorcerer.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "hateos",
+    "discovery",
+    "versioning",
+    "magic"
+  ],
+  "author": "pachet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pachet/sorcerer/issues"
+  },
+  "homepage": "https://github.com/pachet/sorcerer"
+}
