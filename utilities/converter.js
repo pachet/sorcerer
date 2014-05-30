@@ -1,7 +1,9 @@
 
 
 function convertToXML(data) {
-	return 'obobobobo';
+	//TODO
+	//implement
+	return data;
 }
 
 function isArray(value) {
@@ -16,7 +18,7 @@ function formatArrayAsHTML(array) {
 	var result = '<ol>';
 
 	array.forEach(function each(value) {
-		result += '<li>' + convertToHTML(value) + '</li>';
+		result += '<li>' + convertToHTML(value, true) + '</li>';
 	});
 
 	result += '</ol>';
@@ -49,12 +51,18 @@ function formatPrimitiveAsHTML(primitive) {
 }
 
 function convertToHTML(data, is_fragment) {
-	var result = '';
+	var result;
+
+	if (typeof data === 'string') {
+		return ' <strong>' + data + '</strong>';
+	}
+
+	result = '';
 
 	try {
 		data = JSON.parse(JSON.stringify(data));
 	} catch(e) {
-		return '';
+		return '&nbsp';
 	}
 
 	if (!is_fragment) {
@@ -62,11 +70,11 @@ function convertToHTML(data, is_fragment) {
 	}
 
 	if (isArray(data)) {
-		result += formatArrayAsHTML(data);
+		result += formatArrayAsHTML(data, is_fragment);
 	} else if (data instanceof Object) {
-		result += formatObjectAsHTML(data);
+		result += formatObjectAsHTML(data, is_fragment);
 	} else {
-		result += formatPrimitiveAsHTML(data);
+		result += formatPrimitiveAsHTML(data, is_fragment);
 	}
 
 	if (!is_fragment) {
